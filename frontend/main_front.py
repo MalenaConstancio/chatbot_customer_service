@@ -82,6 +82,7 @@ st.markdown(
 )
 
 
+
 col1, col2= st.columns([90, 10])
 with col1:
     pass
@@ -103,11 +104,22 @@ with col2:
         
 usuario = "😊"
 bot = "🔴"
-
+    
 # Inicializar historial de mensajes
 if "messages" not in st.session_state:
     st.session_state.messages = []
+    
+if "is_first_interaction" not in st.session_state:
+    st.session_state.is_first_interaction = True
 
+# Mostrar mensaje de bienvenida solo en la primera interacción
+if st.session_state.is_first_interaction:
+    st.session_state.messages.append({
+        "role": "assistant",
+        "content": "¡Hola! Soy Nix, tu asistente virtual de Netflix. Estoy aquí para ayudarte con cualquier consulta sobre tu cuenta o el contenido disponible en Netflix. ¿En qué puedo ayudarte hoy?"
+    })
+    st.session_state.is_first_interaction = False
+    
 # Historial
 for message in st.session_state.messages:
     avatar = usuario if message["role"] == "user" else bot
