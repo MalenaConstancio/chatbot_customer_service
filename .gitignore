@@ -1,0 +1,30 @@
+# Entorno virtual
+venv/
+.venv/
+
+# Archivos de configuración
+.env
+
+# Archivos y carpetas de Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Archivos de log
+*.log
+
+# Archivos de caché
+.cache/
+*.tmp
+
+# Archivos generados por IDE
+.vscode/
+.idea/
+
+# Archivos de Streamlit
+.streamlit/
+
+# Base de datos Chroma
+backend/data/chroma/
+*.db
